@@ -9,21 +9,15 @@ const http = require ("http");
 //server.use(cors());
 //server.use(express.json());
 const userDb = require('./database/helpers/dbhelper.js');
-const { Client } = require('pg');
 
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
-
-client.connect();
-
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end();
+var connectionString = "postgres://*USERNAME*:*PASSWORD*@*HOST*:*PORT*/*DATABASE*"
+ 
+pg.connect(connectionString, function(err, client, done) {
+   client.query('SELECT * FROM users', function(err, result) {
+      done();
+      if(err) return console.error(err);
+      console.log(result.rows);
+   });
 });
 
 server.get("/", (req, res) => {
