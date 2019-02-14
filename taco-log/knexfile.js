@@ -4,10 +4,14 @@ module.exports = {
 
   development: {
     client: 'sqlite3',
+    useNullAsDefault: true,
     connection: {
-      filename: './backend/db/taco-log.sqlite3'
+      filename: './database/dev.sqlite3'
     },
-    useNullAsDefault: true
+    migrations: {
+      directory: './database/migrations',
+      tableName: 'dbmigrations',
+    },
   },
 
   staging: {
@@ -22,24 +26,26 @@ module.exports = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: './database/migrations',
+      tableName: 'dbmigrations',
+    },
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
-    }
+      directory: './database/migrations',
+      tableName: 'dbmigrations',
+    },
+    seeds: {
+      directory: './backend/seeds',
+  },
   }
+
 
 };
