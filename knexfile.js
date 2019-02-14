@@ -39,11 +39,11 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: './backend/database/migrations/20190213131329_inital_migration.js',
+      directory: './taco-log/backend/database/migrations',
       tableName: 'dbmigrations',
     },
     seeds: {
-      directory: './backend/database/seeds',
+      directory: './taco-log/backend/database/seeds',
   },
   }
 
