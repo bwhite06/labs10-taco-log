@@ -10,9 +10,9 @@ const http = require ("http");
 //server.use(express.json());
 const userDb = require('./database/helpers/dbhelper.js');
 
-var connectionString = "postgres://*USERNAME*:*PASSWORD*@*HOST*:*PORT*/*DATABASE*"
+
  
-pg.connect(connectionString, function(err, client, done) {
+pg.connect(process.env.DATABASE_URL, function(err, client, done) {
    client.query('SELECT * FROM users', function(err, result) {
       done();
       if(err) return console.error(err);
