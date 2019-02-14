@@ -40,7 +40,7 @@ module.exports = {
     },
     migrations: {
       directory: './taco-log/backend/database/migrations',
-      
+      tableName: "migrations",
     },
     seeds: {
       directory: './taco-log/backend/seeds',
