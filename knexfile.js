@@ -9,7 +9,7 @@ module.exports = {
       filename: './database/dev.sqlite3'
     },
     migrations: {
-      directory: './database/migrations',
+      directory: './migrations',
       tableName: 'dbmigrations',
     },
   },
@@ -39,11 +39,11 @@ module.exports = {
       max: 10
     },
     migrations: {
-      directory: './database/migrations',
+      directory: './backend/database/migrations/20190213131329_inital_migration.js',
       tableName: 'dbmigrations',
     },
     seeds: {
-      directory: './backend/seeds',
+      directory: './backend/database/seeds',
   },
   }
 
