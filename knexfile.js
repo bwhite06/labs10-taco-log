@@ -43,7 +43,7 @@ module.exports = {
       tableName: 'dbmigrations',
     },
     seeds: {
-      directory: './taco-log/backend/database/seeds',
+      directory: './taco-log/backend/seeds',
   },
   }
 
